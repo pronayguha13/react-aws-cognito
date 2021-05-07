@@ -1,9 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Redirect,
   Route,
   Switch,
+  useHistory,
 } from "react-router-dom";
 
 import App from "./App";
@@ -24,8 +25,14 @@ const BrowserRoutes = () => {
 };
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
-  const { isLoggedIn } = useContext(LoginContext);
-
+  const { isLoggedIn, getSession } = useContext(LoginContext);
+  const history = useHistory();
+  useEffect(() => {
+    getSession();
+    if (!isLoggedIn) {
+      history.push("/signin");
+    }
+  }, [isLoggedIn]);
   return (
     <Route
       {...rest}

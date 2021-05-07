@@ -1,0 +1,20 @@
+.NavBar {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  box-shadow: 0px 8px 8px -6px #000;
+  border-radius: 4px;
+  line-height: 4rem;
+  padding-right: 24px;
+}
+.NavBar img {
+  height: 40px;
+}
+
+.NavBar span span {
+  font-weight: 500;
+  font-style: italic;
+  text-decoration: underline;
+}
